@@ -26,7 +26,7 @@ help:
 	@echo "dist - package"
 	@echo "install - install the package to the active Python's site-packages"
 
-clean: clean-build clean-pyc clean-test
+clean: clean-build clean-pyc clean-test clean-so
 
 clean-build:
 	rm -fr build/
@@ -45,6 +45,9 @@ clean-test:
 	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
+
+clean-so:
+	find . -name '*.so' -exec rm -f {} +
 
 lint:
 	flake8 omp_thread_count tests
