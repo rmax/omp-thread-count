@@ -6,10 +6,7 @@ python: 3.5
 
 env:
   - TOXENV=py35
-  - TOXENV=py34
-  - TOXENV=py33
   - TOXENV=py27
-  - TOXENV=py26
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox
@@ -24,7 +21,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: darkrho
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: vZ/53JIl1uaqLjoqU4Bi/F9xV/KJPjx8r6lI7R9/TbGVxxJiCYd7OAvU2+MAvPqckIbGK3F7h+heVBWscVsJwvQ3PeUq2oBslgG45kgrbGtFCXlvjfl2oF6VtYewubi/kelqSqczqbRwLcyKBSQMas9tAQOIL8WNxXo/aZeViVOzhtoB/H1QASmNxTxfxwbtLUNUemMEW72bF6TgcAEKedQ/7g9NTD8DCNXjJe0I4mhorje45ie4OsoWxXYOaPwGecWLPOP9VOmiFixgmBZagmVIagBVvvqoxzMjjWMT8RMjXz71rPUIWa2IVZcIdXAmLQ3FFzP6ZovUusVxFE997beIH6atBiJEpmpMYKxfcEjLf8u0m5V8eApoJeZPeyb2liP+iq3i/rcv3njlpcymQUs7e5uBpItskhORaGivDdU+pIlcl5Mtr+EycxUkXxHsZFnRh0O1LOq6MFTJT9nbwvBwUaKO1U0xBVvqa3QsPhSv8hEZK0z04wBCJYPbkFR8vxwhklIFY7/XpnILF7uJAF4v7BrVNDy3reooaRvTqUKYJzx1gNoK0EG+1U8boPnJrGKMa3ylfzUKoO/6PnD/gsdcmfDHjFSsCCrb3yvbx+4wclIJyEVTRFMFPbpclfZu9ybYKDJ1InqPqDAlbB00AJDDDpfm1VfAABDtd65UjO8=
   on:
     tags: true
     repo: rolando/omp-thread-count
