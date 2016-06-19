@@ -31,5 +31,6 @@ setup(
     package_data={
         "tests": ['*.pyx', '*.pxd'],
     },
+    setup_requires=['cython'],
     ext_modules=get_extensions(),
 )
