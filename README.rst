@@ -23,6 +23,18 @@ Why
 
 Because GCC/Cython always returned 1 when calling ``openmp.get_thread_num`` or ``openmp.get_max_threads``.
 
+Installation
+------------
+
+To install run::
+
+  pip install omp-thread-count
+
+In OSX, and possibly other platforms, you may need to specify a compiler with
+OpenMP support, like this::
+
+  CC=gcc-4.8 pip install omp-thread-count
+
 Usage
 -----
 
