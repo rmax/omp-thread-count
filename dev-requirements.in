@@ -4,12 +4,22 @@
 #
 #    pip-compile dev-requirements.in > dev-requirements.txt
 #
-bumpversion
-wheel
-watchdog
+
+# project deps
+cython
+
+# tests
+pytest
+pytest-cov
 flake8
 tox
-coverage
+
+# meta
+bumpversion
+check-manifest
+pip-tools
+wheel
+
+# docs
 Sphinx
-pytest
-cython
+watchdog

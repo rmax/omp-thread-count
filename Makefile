@@ -62,10 +62,7 @@ test: build-inplace
 test-all:
 	tox
 
-coverage:
-
-	coverage run --source omp_thread_count py.test
-
+coverage: test
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
