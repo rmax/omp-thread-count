@@ -70,6 +70,9 @@ coverage: test
 compile-reqs:
 	pip-compile -v dev-requirements.in -o dev-requirements.txt
 
+install-reqs:
+	pip install -r dev-requirements.txt
+
 docs:
 	rm -f docs/omp_thread_count.rst
 	rm -f docs/modules.rst
