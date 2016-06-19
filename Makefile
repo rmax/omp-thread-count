@@ -70,8 +70,8 @@ coverage:
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
-compile-dev-reqs:
-	pip-compile dev-requirements.in > dev-requirements.txt
+compile-reqs:
+	pip-compile -v dev-requirements.in -o dev-requirements.txt
 
 docs:
 	rm -f docs/omp_thread_count.rst
