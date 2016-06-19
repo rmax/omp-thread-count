@@ -5,6 +5,7 @@ include LICENSE
 include README.rst
 
 recursive-include tests *
+recursive-include omp_thread_count *.pyx *.px[di] *.h *.c
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
