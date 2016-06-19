@@ -1,4 +1,4 @@
-"""Test cimporting the function directly.
+"""Test cimporting the function directly."""
 from omp_thread_count._omp cimport get_thread_count as _get_thread_count
 
 
