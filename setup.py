@@ -18,7 +18,8 @@ class build_ext(_build_ext.build_ext):
         name = self.compiler.compiler[0]  # command list
         ret = subprocess.call(['scripts/check_for_openmp.py', '-c', name])
         if ret != 0:
-            sys.stderr.write("Compiler check failed. Run scripts/check_for_openmp.py -v\n")
+            sys.stderr.write("Compiler check failed. "
+                             "Run scripts/check_for_openmp.py -v\n")
             sys.exit(ret)
 
     def build_extensions(self):
@@ -27,18 +28,26 @@ class build_ext(_build_ext.build_ext):
 
 
 def get_extensions(use_cython=USE_CYTHON):
-    module = 'omp_thread_count'
-    ext = '.pyx' if USE_CYTHON else '.c'
-    sources = ['src/omp_thread_count' + ext]
+    prefix = 'omp_thread_count/'
+    modprefix = prefix.replace('/', '.')
+    kwargs = {
+        'include_dirs': [prefix + 'include/'],
+        'extra_compile_args': ['-fopenmp'],
+        'extra_link_args': ['-fopenmp'],
+    }
+    names = ['_omp', '_omp_wrapper']
+    if USE_CYTHON:
+        exts = ['.pxd', '.pyx']
+    else:
+        exts = ['.c'] * 2
     extensions = [
-        Extension(module, sources,
-                  include_dirs=['src'],
-                  extra_compile_args=['-fopenmp'],
-                  extra_link_args=['-fopenmp']),
+        Extension(modprefix + name, [prefix + name + ext], **kwargs)
+        for name, ext in zip(names, exts)
     ]
     if USE_CYTHON:
         from Cython.Build import cythonize
-        extensions = cythonize(extensions)
+        extensions = cythonize(extensions,
+                               compiler_directives={'embedsignature': True})
     return extensions
 
 
@@ -48,21 +57,28 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+short_description = (
+    "A small utility to get the actual number of threads "
+    "used by OpenMP via Cython bindings."
+)
 
 setup(
     name='omp-thread-count',
     version='0.1.0',
-    description="A small utility to get the actual number of threads used by OMP via Cython.",
+    description=short_description,
     long_description=readme + '\n\n' + history,
     author="Rolando Espinoza",
     author_email='rolando at rmax.io',
     url='https://github.com/rolando/omp-thread-count',
+    packages=['omp_thread_count'],
+    package_data={
+        "omp_thread_count": ['*.pyx', '*.pxd', 'include/*.h'],
+    },
     license="MIT",
-    ext_modules=get_extensions(),
     zip_safe=False,
-    keywords=['openmp', 'threads', 'counter'],
+    keywords=['openmp', 'threads'],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -73,4 +89,5 @@ setup(
     ],
     test_suite='tests',
     cmdclass={'build_ext': build_ext},
+    ext_modules=get_extensions(),
 )

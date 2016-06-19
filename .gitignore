@@ -57,3 +57,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Ignore cython-generated c files in tests.
+tests/*.c
