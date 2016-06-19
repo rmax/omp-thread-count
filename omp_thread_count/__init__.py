@@ -3,7 +3,7 @@ from ._omp_wrapper import get_thread_count
 
 __author__ = 'Rolando Espinoza'
 __email__ = 'rolando at rmax.io'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 
 def get_includes():
