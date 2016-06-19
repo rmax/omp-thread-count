@@ -84,10 +84,9 @@ docs:
 servedocs: docs
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
-release: clean
-	python setup.py sdist upload
-	python setup.py bdist_wheel
-	twine upload dist/*
+release: dist
+	# Only upload source files.
+	twine upload dist/*.tar.gz
 
 dist: clean
 	python setup.py sdist
