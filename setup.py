@@ -87,7 +87,6 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
     ],
-    test_suite='tests',
     cmdclass={'build_ext': build_ext},
     ext_modules=get_extensions(),
 )
