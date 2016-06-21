@@ -48,7 +48,7 @@ def get_extensions():
 
 
 def read_text(filename):
-    with io.open('README.rst') as fp:
+    with io.open(filename) as fp:
         return fp.read()
 
 
