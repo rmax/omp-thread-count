@@ -63,7 +63,7 @@ long_description = "\n\n".join([
 
 setup(
     name='omp-thread-count',
-    version='0.2.0',
+    version='0.2.1',
     description=short_description,
     long_description=long_description,
     author="Rolando Espinoza",
