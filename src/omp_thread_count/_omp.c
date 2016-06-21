@@ -4,17 +4,17 @@
 {
     "distutils": {
         "depends": [
-            "omp_thread_count/include/get_thread_count.h"
-        ], 
+            "src/omp_thread_count/include/omp_thread_count.h"
+        ],
         "extra_compile_args": [
             "-fopenmp"
-        ], 
+        ],
         "extra_link_args": [
             "-fopenmp"
-        ], 
+        ],
         "include_dirs": [
-            "omp_thread_count/include/"
-        ], 
+            "src/omp_thread_count/include/"
+        ],
         "language": "c"
     }
 }
@@ -278,9 +278,9 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__omp_thread_count___omp_wrapper
-#define __PYX_HAVE_API__omp_thread_count___omp_wrapper
-#include "get_thread_count.h"
+#define __PYX_HAVE__omp_thread_count___omp
+#define __PYX_HAVE_API__omp_thread_count___omp
+#include "omp_thread_count.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -496,7 +496,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "omp_thread_count/_omp_wrapper.pyx",
+  "src/omp_thread_count/_omp.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -604,68 +604,43 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 /* CheckBinaryVersion.proto */
 static int __Pyx_check_binary_version(void);
 
+/* FunctionExport.proto */
+static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig);
+
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
 /* Module declarations from 'omp_thread_count._omp' */
+static int __pyx_f_16omp_thread_count_4_omp_get_thread_count(int __pyx_skip_dispatch); /*proto*/
+#define __Pyx_MODULE_NAME "omp_thread_count._omp"
+int __pyx_module_is_main_omp_thread_count___omp = 0;
 
-/* Module declarations from 'omp_thread_count._omp_wrapper' */
-#define __Pyx_MODULE_NAME "omp_thread_count._omp_wrapper"
-int __pyx_module_is_main_omp_thread_count___omp_wrapper = 0;
-
-/* Implementation of 'omp_thread_count._omp_wrapper' */
-static const char __pyx_k_n[] = "n";
+/* Implementation of 'omp_thread_count._omp' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_get_thread_count[] = "get_thread_count";
-static const char __pyx_k_omp_thread_count__omp_wrapper[] = "omp_thread_count._omp_wrapper";
-static const char __pyx_k_Users_rolando_MyProjects_omp_th[] = "/Users/rolando/MyProjects/omp-thread-count/omp_thread_count/_omp_wrapper.pyx";
-static PyObject *__pyx_kp_s_Users_rolando_MyProjects_omp_th;
-static PyObject *__pyx_n_s_get_thread_count;
 static PyObject *__pyx_n_s_main;
-static PyObject *__pyx_n_s_n;
-static PyObject *__pyx_n_s_omp_thread_count__omp_wrapper;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_tuple_;
-static PyObject *__pyx_codeobj__2;
+static PyObject *__pyx_pf_16omp_thread_count_4_omp_get_thread_count(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 
-/* "omp_thread_count/_omp_wrapper.pyx":5
+/* "omp_thread_count/_omp.pyx":8
  * 
  * 
- * def get_thread_count():             # <<<<<<<<<<<<<<
+ * cpdef int get_thread_count() nogil:             # <<<<<<<<<<<<<<
  *     """Returns OMP thread count.
  *     """
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_16omp_thread_count_12_omp_wrapper_1get_thread_count(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_16omp_thread_count_12_omp_wrapper_get_thread_count[] = "get_thread_count()\nReturns OMP thread count.\n    ";
-static PyMethodDef __pyx_mdef_16omp_thread_count_12_omp_wrapper_1get_thread_count = {"get_thread_count", (PyCFunction)__pyx_pw_16omp_thread_count_12_omp_wrapper_1get_thread_count, METH_NOARGS, __pyx_doc_16omp_thread_count_12_omp_wrapper_get_thread_count};
-static PyObject *__pyx_pw_16omp_thread_count_12_omp_wrapper_1get_thread_count(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_thread_count (wrapper)", 0);
-  __pyx_r = __pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(__pyx_self);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pw_16omp_thread_count_4_omp_1get_thread_count(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static int __pyx_f_16omp_thread_count_4_omp_get_thread_count(CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_n;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("get_thread_count", 0);
+  int __pyx_r;
 
-  /* "omp_thread_count/_omp_wrapper.pyx":9
+  /* "omp_thread_count/_omp.pyx":12
  *     """
  *     cdef int n
  *     with nogil:             # <<<<<<<<<<<<<<
- *         n = _get_thread_count()
+ *         n = _omp_thread_count()
  *     return n
  */
   {
@@ -675,20 +650,20 @@ static PyObject *__pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(CYT
       #endif
       /*try:*/ {
 
-        /* "omp_thread_count/_omp_wrapper.pyx":10
+        /* "omp_thread_count/_omp.pyx":13
  *     cdef int n
  *     with nogil:
- *         n = _get_thread_count()             # <<<<<<<<<<<<<<
+ *         n = _omp_thread_count()             # <<<<<<<<<<<<<<
  *     return n
  */
-        __pyx_v_n = get_thread_count();
+        __pyx_v_n = _omp_thread_count();
       }
 
-      /* "omp_thread_count/_omp_wrapper.pyx":9
+      /* "omp_thread_count/_omp.pyx":12
  *     """
  *     cdef int n
  *     with nogil:             # <<<<<<<<<<<<<<
- *         n = _get_thread_count()
+ *         n = _omp_thread_count()
  *     return n
  */
       /*finally:*/ {
@@ -702,30 +677,57 @@ static PyObject *__pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(CYT
       }
   }
 
-  /* "omp_thread_count/_omp_wrapper.pyx":11
+  /* "omp_thread_count/_omp.pyx":14
  *     with nogil:
- *         n = _get_thread_count()
+ *         n = _omp_thread_count()
  *     return n             # <<<<<<<<<<<<<<
  */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_r = __pyx_v_n;
   goto __pyx_L0;
 
-  /* "omp_thread_count/_omp_wrapper.pyx":5
+  /* "omp_thread_count/_omp.pyx":8
  * 
  * 
- * def get_thread_count():             # <<<<<<<<<<<<<<
+ * cpdef int get_thread_count() nogil:             # <<<<<<<<<<<<<<
  *     """Returns OMP thread count.
  *     """
  */
 
   /* function exit code */
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_16omp_thread_count_4_omp_1get_thread_count(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_16omp_thread_count_4_omp_get_thread_count[] = "get_thread_count() -> int\nReturns OMP thread count.\n    ";
+static PyObject *__pyx_pw_16omp_thread_count_4_omp_1get_thread_count(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_thread_count (wrapper)", 0);
+  __pyx_r = __pyx_pf_16omp_thread_count_4_omp_get_thread_count(__pyx_self);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_16omp_thread_count_4_omp_get_thread_count(CYTHON_UNUSED PyObject *__pyx_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("get_thread_count", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_16omp_thread_count_4_omp_get_thread_count(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("omp_thread_count._omp_wrapper.get_thread_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("omp_thread_count._omp.get_thread_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -734,6 +736,7 @@ static PyObject *__pyx_pf_16omp_thread_count_12_omp_wrapper_get_thread_count(CYT
 }
 
 static PyMethodDef __pyx_methods[] = {
+  {"get_thread_count", (PyCFunction)__pyx_pw_16omp_thread_count_4_omp_1get_thread_count, METH_NOARGS, __pyx_doc_16omp_thread_count_4_omp_get_thread_count},
   {0, 0, 0, 0}
 };
 
@@ -744,7 +747,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "_omp_wrapper",
+    "_omp",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -756,11 +759,7 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_kp_s_Users_rolando_MyProjects_omp_th, __pyx_k_Users_rolando_MyProjects_omp_th, sizeof(__pyx_k_Users_rolando_MyProjects_omp_th), 0, 0, 1, 0},
-  {&__pyx_n_s_get_thread_count, __pyx_k_get_thread_count, sizeof(__pyx_k_get_thread_count), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-  {&__pyx_n_s_n, __pyx_k_n, sizeof(__pyx_k_n), 0, 0, 1, 1},
-  {&__pyx_n_s_omp_thread_count__omp_wrapper, __pyx_k_omp_thread_count__omp_wrapper, sizeof(__pyx_k_omp_thread_count__omp_wrapper), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
@@ -771,23 +770,8 @@ static int __Pyx_InitCachedBuiltins(void) {
 static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
-
-  /* "omp_thread_count/_omp_wrapper.pyx":5
- * 
- * 
- * def get_thread_count():             # <<<<<<<<<<<<<<
- *     """Returns OMP thread count.
- *     """
- */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_n); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple_);
-  __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_rolando_MyProjects_omp_th, __pyx_n_s_get_thread_count, 5, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
-  __pyx_L1_error:;
-  __Pyx_RefNannyFinishContext();
-  return -1;
 }
 
 static int __Pyx_InitGlobals(void) {
@@ -798,11 +782,11 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC init_omp_wrapper(void); /*proto*/
-PyMODINIT_FUNC init_omp_wrapper(void)
+PyMODINIT_FUNC init_omp(void); /*proto*/
+PyMODINIT_FUNC init_omp(void)
 #else
-PyMODINIT_FUNC PyInit__omp_wrapper(void); /*proto*/
-PyMODINIT_FUNC PyInit__omp_wrapper(void)
+PyMODINIT_FUNC PyInit__omp(void); /*proto*/
+PyMODINIT_FUNC PyInit__omp(void)
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
@@ -816,7 +800,7 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit__omp_wrapper(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit__omp(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -845,7 +829,7 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("_omp_wrapper", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("_omp", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -862,14 +846,14 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_omp_thread_count___omp_wrapper) {
+  if (__pyx_module_is_main_omp_thread_count___omp) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "omp_thread_count._omp_wrapper")) {
-      if (unlikely(PyDict_SetItemString(modules, "omp_thread_count._omp_wrapper", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "omp_thread_count._omp")) {
+      if (unlikely(PyDict_SetItemString(modules, "omp_thread_count._omp", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -880,6 +864,7 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
   /*--- Global init code ---*/
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
+  if (__Pyx_ExportFunction("get_thread_count", (void (*)(void))__pyx_f_16omp_thread_count_4_omp_get_thread_count, "int (int __pyx_skip_dispatch)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   /*--- Type init code ---*/
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
@@ -889,21 +874,9 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "omp_thread_count/_omp_wrapper.pyx":5
- * 
- * 
- * def get_thread_count():             # <<<<<<<<<<<<<<
- *     """Returns OMP thread count.
- *     """
- */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_16omp_thread_count_12_omp_wrapper_1get_thread_count, NULL, __pyx_n_s_omp_thread_count__omp_wrapper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_thread_count, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "omp_thread_count/_omp_wrapper.pyx":1
+  /* "omp_thread_count/_omp.pyx":1
  * # distutils: language = c             # <<<<<<<<<<<<<<
- * from ._omp cimport get_thread_count as _get_thread_count
+ * 
  * 
  */
   __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -918,11 +891,11 @@ PyMODINIT_FUNC PyInit__omp_wrapper(void)
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init omp_thread_count._omp_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init omp_thread_count._omp", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init omp_thread_count._omp_wrapper");
+    PyErr_SetString(PyExc_ImportError, "init omp_thread_count._omp");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -1572,6 +1545,43 @@ static int __Pyx_check_binary_version(void) {
         return PyErr_WarnEx(NULL, message, 1);
     }
     return 0;
+}
+
+/* FunctionExport */
+static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig) {
+    PyObject *d = 0;
+    PyObject *cobj = 0;
+    union {
+        void (*fp)(void);
+        void *p;
+    } tmp;
+    d = PyObject_GetAttrString(__pyx_m, (char *)"__pyx_capi__");
+    if (!d) {
+        PyErr_Clear();
+        d = PyDict_New();
+        if (!d)
+            goto bad;
+        Py_INCREF(d);
+        if (PyModule_AddObject(__pyx_m, (char *)"__pyx_capi__", d) < 0)
+            goto bad;
+    }
+    tmp.fp = f;
+#if PY_VERSION_HEX >= 0x02070000
+    cobj = PyCapsule_New(tmp.p, sig, 0);
+#else
+    cobj = PyCObject_FromVoidPtrAndDesc(tmp.p, (void *)sig, 0);
+#endif
+    if (!cobj)
+        goto bad;
+    if (PyDict_SetItemString(d, name, cobj) < 0)
+        goto bad;
+    Py_DECREF(cobj);
+    Py_DECREF(d);
+    return 0;
+bad:
+    Py_XDECREF(cobj);
+    Py_XDECREF(d);
+    return -1;
 }
 
 /* InitStrings */

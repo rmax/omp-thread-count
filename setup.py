@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
+import io
 import subprocess
 import sys
 
@@ -9,7 +9,7 @@ from setuptools.command import build_ext as _build_ext
 from setuptools.extension import Extension
 
 
-USE_CYTHON = bool(os.environ.get('USE_CYTHON'))
+PKGNAME = "omp_thread_count"
 
 
 class build_ext(_build_ext.build_ext):
@@ -22,58 +22,58 @@ class build_ext(_build_ext.build_ext):
                              "Run scripts/check_for_openmp.py -v\n")
             sys.exit(ret)
 
+    def finalize_options(self):
+        # Cythonize on build_ext only.
+        from Cython.Build import cythonize
+        self.distribution.ext_modules[:] = cythonize(
+            self.distribution.ext_modules,
+            compiler_directives={'embedsignature': True},
+        )
+        _build_ext.build_ext.finalize_options(self)
+
     def build_extensions(self):
         self.assert_openmp_support()
         _build_ext.build_ext.build_extensions(self)
 
 
-def get_extensions(use_cython=USE_CYTHON):
-    prefix = 'omp_thread_count/'
-    modprefix = prefix.replace('/', '.')
+def get_extensions():
     kwargs = {
-        'include_dirs': [prefix + 'include/'],
+        'include_dirs': ['src/%s/include/' % PKGNAME],
         'extra_compile_args': ['-fopenmp'],
         'extra_link_args': ['-fopenmp'],
     }
-    names = ['_omp', '_omp_wrapper']
-    if USE_CYTHON:
-        exts = ['.pxd', '.pyx']
-    else:
-        exts = ['.c'] * 2
-    extensions = [
-        Extension(modprefix + name, [prefix + name + ext], **kwargs)
-        for name, ext in zip(names, exts)
+    return [
+        Extension('%s._omp' % PKGNAME, ['src/%s/_omp.pyx' % PKGNAME], **kwargs)
     ]
-    if USE_CYTHON:
-        from Cython.Build import cythonize
-        extensions = cythonize(extensions,
-                               compiler_directives={'embedsignature': True})
-    return extensions
 
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
+def read_text(filename):
+    with io.open('README.rst') as fp:
+        return fp.read()
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
 
 short_description = (
     "A small utility to get the actual number of threads "
     "used by OpenMP via Cython bindings."
 )
+long_description = "\n\n".join([
+    read_text('README.rst'),
+    read_text('HISTORY.rst'),
+])
 
 setup(
     name='omp-thread-count',
     version='0.2.0',
     description=short_description,
-    long_description=readme + '\n\n' + history,
+    long_description=long_description,
     author="Rolando Espinoza",
     author_email='rolando at rmax.io',
     url='https://github.com/rolando/omp-thread-count',
-    packages=['omp_thread_count'],
+    packages=[PKGNAME],
     package_data={
-        "omp_thread_count": ['*.pyx', '*.pxd', 'include/*.h'],
+        PKGNAME: ['*.pyx', '*.pxd', 'include/*.h'],
     },
+    package_dir = {PKGNAME: 'src/' + PKGNAME},
     license="MIT",
     zip_safe=False,
     keywords=['openmp', 'threads'],
@@ -89,4 +89,5 @@ setup(
     ],
     cmdclass={'build_ext': build_ext},
     ext_modules=get_extensions(),
+    setup_requires = ['cython>=0.24'],
 )

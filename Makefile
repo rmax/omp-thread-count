@@ -26,7 +26,7 @@ help:
 	@echo "dist - package"
 	@echo "install - install the package to the active Python's site-packages"
 
-clean: clean-build clean-pyc clean-test clean-so
+clean: clean-build clean-pyc clean-test clean-cython
 
 clean-build:
 	rm -fr build/
@@ -46,23 +46,26 @@ clean-test:
 	rm -f .coverage
 	rm -fr htmlcov/
 
-clean-so:
+clean-cython:
+	# cleanup generated files
+	find . -name '*.c' -exec rm -f {} +
 	find . -name '*.so' -exec rm -f {} +
 
 lint:
 	flake8 omp_thread_count tests
 
-build-inplace: clean
-	python setup.py build_ext --inplace
+develop: clean
+	python setup.py develop
 	python setup_tests.py build_ext --inplace
 
-test: build-inplace
-	py.test
+test: develop
+	py.test -v
 
-test-all:
-	tox
+test-all: clean
+	tox -v
 
-coverage: test
+coverage: develop
+	coverage run --source omp_thread_count -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html

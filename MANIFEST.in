@@ -5,7 +5,7 @@ include HISTORY.rst
 include README.rst
 include LICENSE
 
-recursive-include omp_thread_count *.pyx *.px[di] *.h *.c
+recursive-include src *.pyx *.px[di] *.h
 recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
 recursive-include scripts *
 

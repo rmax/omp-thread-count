@@ -17,11 +17,9 @@ def get_extensions():
         'extra_compile_args': ['-fopenmp'],
         'extra_link_args': ['-fopenmp'],
     }
-    extensions = [
-        Extension('tests.*', ['tests/*.pyx'], **kwargs),
-    ]
-    return cythonize(extensions,
-                     compiler_directives={'embedsignature': True})
+    return cythonize([
+        Extension('tests._test_cimport', ['tests/_test_cimport.pyx'], **kwargs),
+    ])
 
 
 setup(
@@ -31,6 +29,5 @@ setup(
     package_data={
         "tests": ['*.pyx', '*.pxd'],
     },
-    setup_requires=['cython'],
     ext_modules=get_extensions(),
 )

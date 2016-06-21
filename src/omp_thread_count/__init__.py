@@ -1,4 +1,4 @@
-from ._omp_wrapper import get_thread_count
+from ._omp import get_thread_count
 
 
 __author__ = 'Rolando Espinoza'
