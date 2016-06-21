@@ -5,8 +5,12 @@ include HISTORY.rst
 include README.rst
 include LICENSE
 
+include *.txt
+include *.ini
+
 recursive-include src *.pyx *.px[di] *.h
 recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
-recursive-include scripts *
+recursive-include tests *.py *.pyx *.pxd
+recursive-include scripts *.py
 
 global-exclude __pycache__ *.pyc *.pyo *.so
