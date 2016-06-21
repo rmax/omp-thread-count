@@ -73,7 +73,7 @@ setup(
     package_data={
         PKGNAME: ['*.pyx', '*.pxd', 'include/*.h'],
     },
-    package_dir = {PKGNAME: 'src/' + PKGNAME},
+    package_dir={'': 'src'},
     license="MIT",
     zip_safe=False,
     keywords=['openmp', 'threads'],
@@ -89,5 +89,5 @@ setup(
     ],
     cmdclass={'build_ext': build_ext},
     ext_modules=get_extensions(),
-    setup_requires = ['cython>=0.24'],
+    setup_requires=['cython>=0.24'],
 )
