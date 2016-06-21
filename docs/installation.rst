@@ -8,7 +8,7 @@ Installation
 Stable release
 --------------
 
-To install OMP Thread Counter, run this command in your terminal:
+To install OpenMP Thread Count, run this command in your terminal:
 
 .. code-block:: console
 
@@ -24,7 +24,7 @@ you through the process.
 From sources
 ------------
 
-The sources for OMP Thread Counter can be downloaded from the `Github repo`_.
+The sources for OpenMP Thread Count can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 

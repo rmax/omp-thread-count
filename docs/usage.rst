@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use OMP Thread Counter in a project::
+To use OpenMP Thread Count in a project::
 
     import omp_thread_count

@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'OMP Thread Counter'
+project = u'OpenMP Thread Count'
 copyright = u'2016, Rolando Espinoza'
 
 # The version info for the project you're documenting, acts as replacement
@@ -209,7 +209,7 @@ latex_elements = {
 # [howto/manual]).
 latex_documents = [
     ('index', 'omp_thread_count.tex',
-     u'OMP Thread Counter Documentation',
+     u'OpenMP Thread Count Documentation',
      u'Rolando Espinoza', 'manual'),
 ]
 
@@ -240,7 +240,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'omp_thread_count',
-     u'OMP Thread Counter Documentation',
+     u'OpenMP Thread Count Documentation',
      [u'Rolando Espinoza'], 1)
 ]
 
@@ -255,7 +255,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', 'omp_thread_count',
-     u'OMP Thread Counter Documentation',
+     u'OpenMP Thread Count Documentation',
      u'Rolando Espinoza',
      'omp-thread-count',
      'One line description of project.',

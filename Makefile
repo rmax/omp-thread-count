@@ -33,6 +33,7 @@ help:
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
 	@echo "dist - package"
+	@echo "develop - install package in develop mode"
 	@echo "install - install the package to the active Python's site-packages"
 
 check: check-setup check-manifest lint
@@ -96,7 +97,7 @@ install-reqs:
 docs:
 	rm -f docs/omp_thread_count.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ omp_thread_count
+	sphinx-apidoc -o docs/ src/omp_thread_count
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

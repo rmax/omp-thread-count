@@ -38,8 +38,8 @@ is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-OMP Thread Counter could always use more documentation, whether as part of the
-official OMP Thread Counter docs, in docstrings, or even on the web in blog posts,
+OpenMP Thread Count could always use more documentation, whether as part of the
+official OpenMP Thread Count docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback
@@ -110,5 +110,4 @@ Tips
 
 To run a subset of tests::
 
-$ py.test tests.test_omp_thread_count
-
+    $ py.test tests.test_omp_thread_count
