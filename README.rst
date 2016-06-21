@@ -38,11 +38,24 @@ OpenMP support, like this::
 Usage
 -----
 
+Importing from python code:
+
 .. code:: python
  
   import omp_thread_count
 
   n_threads = omp_thread_count.get_thread_count()
+
+
+Importing from cython code:
+
+.. code:: python
+
+  from omp_thread_count._omp cimport get_thread_count
+
+Use ``omp_thread_count.get_includes()`` in your extensions' ``include_dirs`` to
+use the header files.
+
 
 Credits
 ---------
