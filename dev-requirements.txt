@@ -54,7 +54,7 @@ pytest==2.9.2
     # via -r dev-requirements.in
 pytz==2016.4
     # via babel
-pyyaml==3.11
+pyyaml==5.4
     # via watchdog
 six==1.10.0
     # via
