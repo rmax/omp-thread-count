@@ -40,7 +40,7 @@ pip-tools==1.6.5
     # via -r dev-requirements.in
 pluggy==0.3.1
     # via tox
-py==1.4.31
+py==1.11.0
     # via
     #   pytest
     #   tox
