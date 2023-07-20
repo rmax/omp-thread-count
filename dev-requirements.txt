@@ -48,7 +48,7 @@ pycodestyle==2.0.0
     # via flake8
 pyflakes==1.2.3
     # via flake8
-pygments==2.7.4
+pygments==2.15.0
     # via sphinx
 pytest==2.9.2
     # via -r dev-requirements.in
